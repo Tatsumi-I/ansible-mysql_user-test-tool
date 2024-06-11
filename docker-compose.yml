@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    environment:
+      MYSQL_HOST: ${mysql_login_host}
+      MYSQL_ROOT_USER: ${mysql_root_user}
+      MYSQL_ROOT_PASSWORD: ${mysql_root_password}
+      MYSQL_DATABASE: ${mysql_database}
+    ports:
+      - "3306:3306"
+  ansible:
+    container_name: ansible
+    build: .
+    volumes:
+      - ./:/
+    depends_on:
+      - mysql
+    env_file: .env
+    command: ansible-playbook playbook-test.yml
