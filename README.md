@@ -19,6 +19,7 @@ This tool helps in validating the creation of mysql users in ansible.
 ## Tips
 
 複数のデータベースに対する権限を設定するには、次のように `/` を使って指定する必要があります。
+
 ref. https://docs.ansible.com/ansible/latest/collections/community/mysql/mysql_user_module.html#parameter-priv 
 
 ```yml
