@@ -6,7 +6,7 @@
     mysql_root_password: "{{ lookup('env', 'mysql_root_password') }}"
     mysql_users:
       - { name: user1, state: present, host: 'localhost', priv: 'database_a.*:SELECT', password: password1 }
-      - { name: user2, state: present, host: 'localhost', priv: 'database_a.*:SELECT/database_b.*:SELECT', password: password2 }
+      - { name: user2, state: present, host: 'localhost', priv: 'database_a.*:SELECT/database_b.*:ALL', password: password2 }
       - { name: user3, state: present, host: 'localhost', priv: 'database_b.*:ALL', password: password3 }
 
   tasks:
