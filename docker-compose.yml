@@ -15,8 +15,8 @@ services:
     container_name: ansible
     build: .
     volumes:
-      - ./:/
+      - ./:/ansible-mysql_user-test-tool
     depends_on:
       - mysql
     env_file: .env
-    command: ansible-playbook playbook-test.yml
+    command: ansible-playbook ansible-mysql_user-test-tool/playbook-test.yml
