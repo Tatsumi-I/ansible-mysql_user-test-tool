@@ -6,6 +6,8 @@ This tool helps in validating the creation of mysql users in ansible.
 
 ## How to use
 
+前提： Docker が使えること。
+
 使い方は次の通りです。
 
 1. `$ docker compose up --build -d`
