@@ -8,15 +8,17 @@ This tool helps in validating the creation of mysql users in ansible.
 
 前提： Docker が使えること。
 
-使い方は次の通りです。
-
 1. `$ docker compose up --build -d`
-2. `$ docker compose logs ansible`
-3. `$ docker compose exec -it mysql bash`
-4. `# mysql -u root -p`
-5. `mysql> SELECT Host, User, Db, Select_priv, Update_priv FROM mysql.db;`
+2. `playbook-test.yml` における `vars` > `mysql_users` を適宜編集します。
+3. `docker compose up -d` を実行してユーザー情報が更新されたか確認します。
 
-`playbook-test.yml` における `vars` > `mysql_users` を適宜編集し、`docker compose up -d` を実行してユーザー情報が更新されたか確認します。
+検証に役立つコマンドは次の通りです。
+
+- `$ docker compose up --build -d`
+- `$ docker compose logs ansible`
+- `$ docker compose exec -it mysql bash`
+- `# mysql -u root -p`
+- `mysql> SELECT Host, User, Db, Select_priv, Update_priv FROM mysql.db;`
 
 ## Tips
 
